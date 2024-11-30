@@ -11,9 +11,12 @@ python = "^3.10"
 [tool.poetry.group.dev.dependencies]
 twine = "^5.1.1"
 build = "^1.2.2.post1"
+black = "^24.10.0"
+pre-commit = "^4.0.1"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
 
 [tool.poetry.group.docs]
 optional = true
@@ -25,3 +28,20 @@ sphinx-rtd-theme = "^3.0.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
