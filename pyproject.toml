@@ -11,9 +11,12 @@ python = "^3.10"
 [tool.poetry.group.dev.dependencies]
 twine = "^5.1.1"
 build = "^1.2.2.post1"
+black = "^24.10.0"
+pre-commit = "^4.0.1"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
 
 [tool.poetry.group.docs]
 optional = true
