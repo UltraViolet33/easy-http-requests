@@ -6,3 +6,9 @@ test-coverage:
 
 docs:
 	cd docs && make html
+
+lint-black:
+	black --check easy_http_requests tests
+
+black:
+	poetry run black easy_http_requests tests
