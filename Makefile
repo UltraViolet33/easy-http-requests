@@ -12,3 +12,6 @@ lint-black:
 
 black:
 	poetry run black easy_http_requests tests
+
+check-type:
+	poetry run mypy easy_http_requests tests
