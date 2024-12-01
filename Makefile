@@ -4,8 +4,8 @@ test:
 test-coverage:
 	poetry run pytest --cov=easy_http_requests --cov-report=term-missing
 
-docs:
-	cd docs && make html
+documentation:
+	sphinx-apidoc -o docs/source easy_http_requests && cd docs && make html
 
 lint-black:
 	poetry run black --check easy_http_requests tests
