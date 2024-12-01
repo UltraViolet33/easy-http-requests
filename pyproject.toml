@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "easy-http-requests"
-version = "0.0.1"
+version = "0.1.0"
 description = ""
 authors = ["UltraViolet33 <93035200+UltraViolet33@users.noreply.github.com>"]
 readme = "README.md"
@@ -13,6 +13,8 @@ twine = "^5.1.1"
 build = "^1.2.2.post1"
 black = "^24.10.0"
 pre-commit = "^4.0.1"
+mypy = "^1.13.0"
+types-requests = "^2.32.0.20241016"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.3"
