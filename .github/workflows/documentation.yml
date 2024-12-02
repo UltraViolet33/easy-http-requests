@@ -1,25 +1,40 @@
 name: documentation
 on:
-  push:
-    branches:
-      - main
+  release:
+    types:
+      - published
+
 jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      # Check out the repository
       - uses: actions/checkout@v2
+      
+      # Set up Python
       - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      # Install Poetry and dependencies
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme
-      - name: Sphinx build
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install --with docs
+      
+      # Generate API documentation
+      - name: Build documentation
         run: |
-          sphinx-build -c ./docs/source/ docs/source _build
-      - name: Deploy
+          poetry run sphinx-apidoc -o docs/source easy_http_requests
+          rm -rf docs/_build   # Clean build directory
+          poetry run sphinx-build -b html docs/source docs/_build
+      
+      # Deploy to GitHub Pages
+      - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/
+          publish_dir: docs/_build
           force_orphan: true
