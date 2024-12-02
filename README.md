@@ -18,5 +18,8 @@ response = easy_http_requests.post('https://jsonplaceholder.typicode.com/posts',
 # PUT request
 response = easy_http_requests.put('https://jsonplaceholder.typicode.com/posts/1', data={'title': 'foo', 'body': 'bar', 'userId': 1})
 
+# DELETE request
+response = easy_http_requests.delete('https://jsonplaceholder.typicode.com/posts/1')
+
 print(response.status_code)
 ```
