@@ -2,9 +2,10 @@ from unittest.mock import patch, MagicMock
 from requests.models import Response
 from easy_http_requests.easy_http_request import EasyHttpRequest
 from requests.structures import CaseInsensitiveDict
+from tests.test_easy_http import TestEasyHttp
 
 
-class TestEasyHttpPostRequest:
+class TestEasyHttpPostRequest(TestEasyHttp):
     BASE_URL = "https://api.example.com"
 
     @patch("requests.request")

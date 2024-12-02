@@ -1,15 +1,11 @@
-import unittest
 import requests
-from unittest.mock import patch, MagicMock
-from requests.models import Response
+from unittest.mock import patch
 from easy_http_requests.easy_http_request import EasyHttpRequest
-from easy_http_requests.easy_http_response import EasyHttpResponse
 from easy_http_requests.exceptions.easy_http_error import (
     EasyHttpRequestError,
     EasyHttpTimeoutError,
     EasyHttpConnectionError,
 )
-from requests.structures import CaseInsensitiveDict
 from tests.test_easy_http import TestEasyHttp
 
 
