@@ -113,6 +113,33 @@ class EasyHttpRequest:
         )
         return EasyHttpResponse(response)
 
+    def delete(
+        self,
+        endpoint: str,
+        params: Optional[Dict[str, Any]] = None,
+        headers: Optional[Dict[str, Any]] = None,
+    ) -> EasyHttpResponse:
+        """
+        Sends a DELETE request to the specified endpoint.
+
+        Args:
+            endpoint (str): The endpoint to send the DELETE request to.
+            params (Optional[Dict[str, Any]]): A dictionary of query parameters.
+            headers (Optional[Dict[str, Any]]): A dictionary of headers to include in the request.
+
+        Returns:
+            EasyHttpResponse: The response wrapped in an EasyHttpResponse object.
+
+        Raises:
+            EasyHttpTimeoutError: If the request times out.
+            EasyHttpConnectionError: If there is a connection error.
+            EasyHttpRequestError: For all other request-related errors.
+        """
+        response = self._make_request(
+            "DELETE", endpoint, params=params, headers=headers
+        )
+        return EasyHttpResponse(response)
+
     def _make_request(
         self,
         method: str,
