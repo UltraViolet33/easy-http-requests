@@ -22,6 +22,7 @@ class TestEasyHttpPostRequest(TestEasyHttp):
             params=None,
             data=None,
             json=None,
+            headers=None,
         )
         assert response == mock_response
 
@@ -46,6 +47,7 @@ class TestEasyHttpPostRequest(TestEasyHttp):
             json={"key": "value"},
             params=None,
             data=None,
+            headers=None,
         )
         assert response.status_code == 201
         assert response.headers == {"Content-Type": "application/json"}
@@ -66,6 +68,7 @@ class TestEasyHttpPostRequest(TestEasyHttp):
             params={"key": "value"},
             data=None,
             json=None,
+            headers=None,
         )
         assert response == mock_response
 
@@ -81,6 +84,11 @@ class TestEasyHttpPostRequest(TestEasyHttp):
         response = client.post("endpoint", json={"key": "value"})
 
         mock_request.assert_called_once_with(
-            "POST", "endpoint", json={"key": "value"}, params=None, data=None
+            "POST",
+            "endpoint",
+            json={"key": "value"},
+            params=None,
+            data=None,
+            headers=None,
         )
         assert response.status_code == 201

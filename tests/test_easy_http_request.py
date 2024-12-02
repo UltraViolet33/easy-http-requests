@@ -30,7 +30,12 @@ class TestEasyHttpRequest(TestEasyHttp):
         response = client.get("endpoint")
 
         mock_request.assert_called_once_with(
-            "GET", "https://api.example.com/endpoint", params=None, data=None, json=None
+            "GET",
+            "https://api.example.com/endpoint",
+            params=None,
+            data=None,
+            json=None,
+            headers=None,
         )
         assert response.status_code == 200
         assert response.headers == {"Content-Type": "application/json"}
@@ -46,7 +51,12 @@ class TestEasyHttpRequest(TestEasyHttp):
         response = client._make_request("GET", "endpoint")
 
         mock_request.assert_called_once_with(
-            "GET", "https://api.example.com/endpoint", params=None, data=None, json=None
+            "GET",
+            "https://api.example.com/endpoint",
+            params=None,
+            data=None,
+            json=None,
+            headers=None,
         )
         assert response == mock_response
 
@@ -62,7 +72,7 @@ class TestEasyHttpRequest(TestEasyHttp):
         response = client.get("endpoint")
 
         mock_request.assert_called_once_with(
-            "GET", "endpoint", params=None, data=None, json=None
+            "GET", "endpoint", params=None, data=None, json=None, headers=None
         )
         assert response.status_code == 200
         assert response.body == {"key": "value"}
