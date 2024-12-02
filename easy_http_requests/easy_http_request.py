@@ -78,7 +78,38 @@ class EasyHttpRequest:
             EasyHttpRequestError: For all other request-related errors.
         """
         response = self._make_request(
-            "POST", endpoint, params=params, json=json, data=data
+            "POST", endpoint, params=params, headers=headers, json=json, data=data
+        )
+        return EasyHttpResponse(response)
+
+    def put(
+        self,
+        endpoint: str,
+        params: Optional[Dict[str, Any]] = None,
+        headers: Optional[Dict[str, Any]] = None,
+        json: Optional[Dict[str, Any]] = None,
+        data: Optional[Any] = None,
+    ) -> EasyHttpResponse:
+        """
+        Sends a PUT request to the specified endpoint.
+
+        Args:
+            endpoint (str): The endpoint to send the PUT request to.
+            params (Optional[Dict[str, Any]]): A dictionary of query parameters.
+            json (Optional[Dict[str, Any]]): A dictionary to be sent as JSON in the request body.
+            headers (Optional[Dict[str, Any]]): A dictionary of headers to include in the request.
+            data (Optional[Any]): Data to be sent in the request body.
+
+        Returns:
+            EasyHttpResponse: The response wrapped in an EasyHttpResponse object.
+
+        Raises:
+            EasyHttpTimeoutError: If the request times out.
+            EasyHttpConnectionError: If there is a connection error.
+            EasyHttpRequestError: For all other request-related errors.
+        """
+        response = self._make_request(
+            "PUT", endpoint, params=params, headers=headers, json=json, data=data
         )
         return EasyHttpResponse(response)
 
