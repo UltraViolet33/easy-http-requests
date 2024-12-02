@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "easy-http-requests"
-version = "0.3.0"
+version = "0.3.1"
 description = ""
 authors = ["UltraViolet33 <93035200+UltraViolet33@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+requests = "^2.32.3"
 
 [tool.poetry.group.dev.dependencies]
 twine = "^5.1.1"
