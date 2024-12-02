@@ -16,3 +16,12 @@ black:
 
 check-type:
 	poetry run mypy easy_http_requests tests
+
+minor:
+	poetry version minor
+
+patch:
+	poetry version patch
+
+major:
+	poetry version major
